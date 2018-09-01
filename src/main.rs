@@ -13,7 +13,7 @@ fn main() {
 	println!("Executing with API token {}...{}", a, b);
 
 	let client = Github::new(api_token).unwrap();
-	let me = client.get().user().execute::<Value>();
+	let me = client.get().repos().owner("hoenn").repo("CurtainFire").issues().execute::<Value>();
 
 	match me {
 		Ok((headers, status, json)) => {
